@@ -1,0 +1,134 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  transition: all 0.4s ease;
+}
+
+.nav.scrolled {
+  background: rgba(8, 11, 16, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.logoBracket { color: var(--text3); }
+.logoName { color: var(--text); }
+.logoDot { color: var(--accent); }
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.link {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text2);
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: color var(--transition), background var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.linkActive {
+  color: var(--text) !important;
+}
+
+.linkDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.cta {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  border: 1px solid var(--border2);
+  padding: 8px 18px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all var(--transition);
+  background: var(--accent-glow2);
+}
+
+.cta:hover {
+  background: var(--accent-glow);
+  border-color: var(--accent);
+  color: var(--accent2);
+}
+
+.hamburger {
+  display: none;
+  color: var(--text);
+  margin-left: auto;
+}
+
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  padding: 12px 32px 20px;
+  gap: 4px;
+  border-top: 1px solid var(--border);
+  background: rgba(8, 11, 16, 0.95);
+}
+
+.mobileLink {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text2);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color var(--transition);
+}
+
+.mobileLink:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .links, .cta { display: none; }
+  .hamburger { display: flex; }
+  .mobileMenu { display: flex; }
+  .inner { gap: 16px; }
+}
+
+@media (max-width: 480px) {
+  .inner { padding: 0 20px; }
+  .mobileMenu { padding: 12px 20px 20px; }
+}
