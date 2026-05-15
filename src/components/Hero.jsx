@@ -27,7 +27,7 @@ export default function Hero() {
           <span>Disponível para projetos</span>
         </motion.div>
         <motion.h1 className={styles.title} {...fadeUp(0.2)}>
-          Fullstack
+          Backend
           <br />
           <span className={styles.titleAccent}>Developer</span>
         </motion.h1>
