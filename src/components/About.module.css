@@ -2,6 +2,7 @@
   padding: 100px 0;
 }
 
+/* ── LAYOUT ── */
 .layout {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -9,7 +10,7 @@
   align-items: center;
 }
 
-/* ── LEFT / PHOTO ── */
+/* ── LEFT / FOTO ── */
 .left {
   display: flex;
   justify-content: center;
@@ -21,7 +22,6 @@
   aspect-ratio: 4/5;
 }
 
-/* Real photo — basta trocar <div> por <img> no JSX */
 .imgPlaceholder {
   width: 100%;
   height: 100%;
@@ -37,10 +37,8 @@
   font-family: var(--font-mono);
   font-size: 13px;
   overflow: hidden;
-  object-fit: cover; /* funciona tanto em div-placeholder como em <img> */
 }
 
-/* Use this class when the element IS an <img> tag */
 .photo {
   width: 100%;
   height: 100%;
@@ -74,7 +72,7 @@
 
 .floatingTag {
   position: absolute;
-  bottom: 20px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -84,7 +82,7 @@
   backdrop-filter: blur(12px);
   border: 1px solid var(--border2);
   border-radius: 100px;
-  padding: 8px 16px;
+  padding: 7px 14px;
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--green);
@@ -168,27 +166,47 @@
   text-overflow: ellipsis;
 }
 
-/* Tablet */
+/* ── TABLET (900px) ─ layout vira 1 coluna, foto centralizada ── */
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;
     gap: 40px;
   }
   .left {
+    justify-content: center;
+  }
+  .imgWrap {
+    width: min(220px, 55vw);
+  }
+}
+
+/* ── MOBILE (480px) ─ foto MENOR mas VISÍVEL acima do texto ── */
+@media (max-width: 480px) {
+  .section { padding: 70px 0; }
+
+  /* foto continua aparecendo, só menor */
+  .left {
     display: flex;
     justify-content: center;
   }
-  .imgWrap { width: min(240px, 60vw); }
-}
+  .imgWrap {
+    width: min(160px, 45vw);  /* menor em tela pequena */
+  }
+  .floatingTag {
+    font-size: 10px;
+    padding: 5px 10px;
+    gap: 6px;
+  }
 
-/* Mobile */
-@media (max-width: 480px) {
-  .section { padding: 70px 0; }
-  .left { display: none; }
-  .cards { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
   .card { padding: 10px 12px; }
 }
 
+/* ── ULTRA-SMALL (360px) ── */
 @media (max-width: 360px) {
+  .imgWrap { width: min(140px, 42vw); }
   .cards { grid-template-columns: 1fr; }
 }
