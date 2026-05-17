@@ -8,30 +8,28 @@ const skillGroups = [
     category: 'Frontend',
     color: '#4f9cf9',
     skills: [
-      { name: 'React.js', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-      { name: 'TypeScript', level: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
-      { name: 'HTML5', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
-      { name: 'CSS3', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
+      { name: 'React.js',    level: 50, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+      { name: 'TypeScript',  level: 50, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+      { name: 'HTML5',       level: 70, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+      { name: 'CSS3',        level: 70, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
     ],
   },
   {
     category: 'Backend',
     color: '#3dd68c',
     skills: [
-      { name: 'Node.js', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
-      { name: 'Express', level: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
-      { name: 'PostgreSQL', level: 75, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-      { name: 'Prisma ORM', level: 78, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg' },
+      { name: 'Node.js',     level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+      { name: 'Express',     level: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
+      { name: 'PostgreSQL',  level: 75, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+      { name: 'Prisma ORM',  level: 78, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg' },
     ],
   },
   {
     category: 'DevOps & Tools',
     color: '#f97b4f',
     skills: [
-      { name: 'Git', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
-      { name: 'Docker', level: 70, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
-      { name: 'JavaScript', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-      // { name: 'Linux', level: 72, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
+      { name: 'Git',    level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+      { name: 'Docker', level: 50, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
     ],
   },
 ];
@@ -44,6 +42,7 @@ export default function Skills() {
     <section id="skills" className={styles.section}>
       <div className={styles.bg} />
       <div className="container" ref={ref}>
+
         <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 30 }}
@@ -63,15 +62,16 @@ export default function Skills() {
             <motion.div
               key={group.category}
               className={styles.group}
+              /* passa a cor como CSS custom property no próprio elemento */
+              style={{ '--group-color': group.color }}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: gi * 0.12 }}
             >
+              {/* HEADER: ponto + nome da categoria */}
               <div className={styles.groupHeader}>
-                <span className={styles.groupDot} style={{ background: group.color }} />
-                <span className={styles.groupLabel} style={{ color: group.color }}>
-                  {group.category}
-                </span>
+                <span className={styles.groupDot} />
+                <p className={styles.groupLabel}>{group.category}</p>
               </div>
 
               <div className={styles.skillList}>
@@ -83,7 +83,7 @@ export default function Skills() {
                           src={skill.icon}
                           alt={skill.name}
                           className={styles.skillIcon}
-                          onError={e => { e.target.style.display = 'none'; }}
+                          onError={e => { e.currentTarget.style.display = 'none'; }}
                         />
                         <span className={styles.skillName}>{skill.name}</span>
                       </div>
@@ -92,10 +92,13 @@ export default function Skills() {
                     <div className={styles.bar}>
                       <motion.div
                         className={styles.barFill}
-                        style={{ background: group.color }}
                         initial={{ width: 0 }}
                         animate={inView ? { width: `${skill.level}%` } : {}}
-                        transition={{ duration: 0.9, delay: gi * 0.12 + si * 0.08 + 0.3, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{
+                          duration: 0.9,
+                          delay: gi * 0.12 + si * 0.08 + 0.3,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
                       />
                     </div>
                   </div>

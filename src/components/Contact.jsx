@@ -12,10 +12,10 @@ const LinkedInIcon = () => (
 );
 
 const socials = [
-  { icon: GitFork, label: 'GitHub', value: 'github.com/seu-user', href: 'https://github.com' },
+  { icon: GitFork, label: 'GitHub', value: 'https://github.com/ViniciusR1', href: 'https://github.com' },
   { icon: LinkedInIcon, label: 'LinkedIn', value: 'linkedin.com/in/seu-perfil', href: 'https://linkedin.com' },
-  { icon: Mail, label: 'Email', value: 'seuemail@email.com', href: 'mailto:seuemail@email.com' },
-  { icon: Phone, label: 'WhatsApp', value: '+55 (81) 9 9999-9999', href: 'https://wa.me/5581999999999' },
+  { icon: Mail, label: 'Email', value: 'rodriguesviniciusc1@gmail.com', href: 'mailto:rodriguesviniciusc1@gmail.com' },
+  { icon: Phone, label: 'WhatsApp', value: '+55 (81) 9 96426039', href: 'https://wa.me/5581996426039' },
 ];
 
 export default function Contact() {
@@ -94,7 +94,7 @@ export default function Contact() {
               <div className={styles.formRow}>
                 <div className={styles.field}>
                   <label className={styles.label}>Seu nome</label>
-                  <input type="text" name="name" value={form.name} onChange={handleChange} className={styles.input} placeholder="João Silva" required />
+                  <input type="text" name="name" value={form.name} onChange={handleChange} className={styles.input} placeholder="Seu Nome" required />
                 </div>
                 <div className={styles.field}>
                   <label className={styles.label}>Seu email</label>

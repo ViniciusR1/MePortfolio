@@ -1,15 +1,15 @@
 .section {
-  padding: 120px 0;
+  padding: 100px 0;
 }
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 80px;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 64px;
   align-items: center;
 }
 
-/* Left */
+/* ── LEFT / PHOTO ── */
 .left {
   display: flex;
   justify-content: center;
@@ -17,10 +17,11 @@
 
 .imgWrap {
   position: relative;
-  width: 320px;
-  height: 380px;
+  width: min(300px, 100%);
+  aspect-ratio: 4/5;
 }
 
+/* Real photo — basta trocar <div> por <img> no JSX */
 .imgPlaceholder {
   width: 100%;
   height: 100%;
@@ -36,6 +37,17 @@
   font-family: var(--font-mono);
   font-size: 13px;
   overflow: hidden;
+  object-fit: cover; /* funciona tanto em div-placeholder como em <img> */
+}
+
+/* Use this class when the element IS an <img> tag */
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--radius2);
+  display: block;
 }
 
 .imgBorder {
@@ -62,7 +74,7 @@
 
 .floatingTag {
   position: absolute;
-  bottom: 24px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -82,6 +94,7 @@
 .tagDot {
   width: 7px;
   height: 7px;
+  min-width: 7px;
   border-radius: 50%;
   background: var(--green);
   animation: pulse 2s ease infinite;
@@ -92,24 +105,23 @@
   50% { opacity: 0.5; }
 }
 
-/* Right */
+/* ── RIGHT ── */
 .right {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .bio {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin: 24px 0 32px;
+  gap: 14px;
+  margin: 20px 0 28px;
 }
 
 .bio p {
   color: var(--text2);
   line-height: 1.75;
-  font-size: 16px;
+  font-size: clamp(14px, 1.5vw, 16px);
 }
 
 .cards {
@@ -125,7 +137,7 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 14px 16px;
+  padding: 13px 15px;
   transition: all var(--transition);
 }
 
@@ -138,6 +150,7 @@
   display: flex;
   flex-direction: column;
   gap: 1px;
+  min-width: 0;
 }
 
 .cardLabel {
@@ -147,20 +160,35 @@
 }
 
 .cardValue {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Tablet */
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
-  .left { display: none; }
+  .left {
+    display: flex;
+    justify-content: center;
+  }
+  .imgWrap { width: min(240px, 60vw); }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
-  .section { padding: 80px 0; }
+  .section { padding: 70px 0; }
+  .left { display: none; }
+  .cards { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .card { padding: 10px 12px; }
+}
+
+@media (max-width: 360px) {
   .cards { grid-template-columns: 1fr; }
 }

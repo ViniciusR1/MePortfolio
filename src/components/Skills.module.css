@@ -1,5 +1,6 @@
+/* ─── SECTION ─────────────────────────────────────────────── */
 .section {
-  padding: 120px 0;
+  padding: 100px 0;
   position: relative;
 }
 
@@ -10,53 +11,75 @@
   pointer-events: none;
 }
 
-.header {
-  margin-bottom: 64px;
-}
+.header { margin-bottom: 56px; }
 
+/* ─── GRID DE GRUPOS ───────────────────────────────────────── */
 .groups {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .group {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius2);
-  padding: 28px;
+  padding: 24px;
   transition: border-color var(--transition);
 }
 
-.group:hover {
-  border-color: var(--border2);
-}
+.group:hover { border-color: var(--border2); }
 
+/* ─── HEADER DO GRUPO (ponto + nome) ──────────────────────── */
+/*
+  IMPORTANTE: --group-color é setado via style no elemento .group
+  e herdado aqui via var(). Isso garante que a cor funcione
+  independente do CSS Modules ou do bundler.
+*/
 .groupHeader {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 24px;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+  /* Garante que nunca vai ter height 0 ou overflow hidden */
+  min-height: 32px;
+  overflow: visible;
 }
 
 .groupDot {
   width: 10px;
   height: 10px;
+  min-width: 10px;
+  min-height: 10px;
   border-radius: 50%;
+  /* usa a CSS var herdada do .group */
+  background-color: var(--group-color, #4f9cf9);
   flex-shrink: 0;
+  display: block;
 }
 
 .groupLabel {
+  /* usa a CSS var herdada do .group */
+  color: var(--group-color, #4f9cf9) !important;
   font-family: var(--font-mono);
   font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  /* garante visibilidade total */
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
 }
 
+/* ─── SKILL ROWS ───────────────────────────────────────────── */
 .skillList {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 .skill {}
@@ -65,19 +88,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 
 .skillInfo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
 }
 
 .skillIcon {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .skillName {
@@ -88,7 +112,7 @@
 
 .skillLevel {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text3);
 }
 
@@ -102,10 +126,23 @@
 .barFill {
   height: 100%;
   border-radius: 4px;
+  /* usa a CSS var herdada do .group pai */
+  background-color: var(--group-color, #4f9cf9);
   opacity: 0.85;
 }
 
+/* ─── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .groups { grid-template-columns: 1fr; }
+  .groups {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
   .section { padding: 80px 0; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 70px 0; }
+  .group { padding: 18px; }
+  .groupLabel { font-size: 11px; letter-spacing: 0.08em; }
+  .skillName { font-size: 13px; }
 }

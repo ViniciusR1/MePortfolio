@@ -12,22 +12,22 @@ const experiences = [
     desc: 'Formação técnica em desenvolvimento de software com foco em banco de dados e desenvolvimento web.',
     skills: ['Node', 'MYSQL', 'HTML/CSS', 'JavaScript', 'React'],
   },
-  {
-    type: 'work',
-    role: 'Desenvolvedor Fullstack Jr.',
-    org: 'Empresa ABC (Freelance)',
-    period: '2023 – Atual',
-    desc: 'Desenvolvimento de aplicações web completas para clientes, incluindo e-commerce, dashboards e APIs RESTful. Participação em todo o ciclo de desenvolvimento.',
-    skills: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
-  },
-  {
-    type: 'education',
-    role: 'Cursos e Certificações',
-    org: 'Rocketseat · Alura · Udemy',
-    period: '2022 – Presente',
-    desc: 'Mais de 400 horas de cursos em desenvolvimento fullstack, incluindo React, Node.js, TypeScript, DevOps e boas práticas de engenharia de software.',
-    skills: ['React', 'TypeScript', 'DevOps', 'Arquitetura'],
-  },
+  // {
+  //   type: 'work',
+  //   role: 'Desenvolvedor Fullstack Jr.',
+  //   org: 'Empresa ABC (Freelance)',
+  //   period: '2023 – Atual',
+  //   desc: 'Desenvolvimento de aplicações web completas para clientes, incluindo e-commerce, dashboards e APIs RESTful. Participação em todo o ciclo de desenvolvimento.',
+  //   skills: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
+  // },
+  // {
+  //   type: 'education',
+  //   role: 'Cursos e Certificações',
+  //   org: 'Rocketseat · Alura · Udemy',
+  //   period: '2022 – Presente',
+  //   desc: 'Mais de 400 horas de cursos em desenvolvimento fullstack, incluindo React, Node.js, TypeScript, DevOps e boas práticas de engenharia de software.',
+  //   skills: ['React', 'TypeScript', 'DevOps', 'Arquitetura'],
+  // },
 ];
 
 export default function Experience() {
