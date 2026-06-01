@@ -73,11 +73,9 @@ export default function About() {
 
             <div className={styles.bio}>
               <p>
-                Desenvolvedor Backend em formação apaixonado por criar experiências digitais
-                completas — do design da interface até a arquitetura do servidor.
-                Com base em Html, Css, Javascript, React, Node.js, TypeScript e bancos de dados
-                relacionais, Git. Busco oportunidades na área de tecnologias para aplicar
-                conhecimentos e contribuir com soluções.
+              Desenvolvedor Backend em início de carreira, apaixonado por tecnologia e pela criação de soluções que conectam desempenho, organização e escalabilidade. Estudo diariamente tecnologias como Node.js, TypeScript, JavaScript, bancos de dados relacionais, APIs REST e Git, aplicando esses conhecimentos em projetos práticos para fortalecer minha experiência.
+
+              Estou em busca da minha primeira oportunidade profissional como Desenvolvedor Backend, onde possa contribuir com dedicação, aprender com profissionais experientes e evoluir constantemente na construção de sistemas robustos e eficientes.
               </p>
               <p>
                 Colaborar em equipe e estou sempre buscando aprender novas
