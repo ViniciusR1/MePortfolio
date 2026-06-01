@@ -14,7 +14,7 @@ const LinkedInIcon = () => (
 const socials = [
   { icon: GitFork, label: 'GitHub', value: 'https://github.com/ViniciusR1', href: 'https://github.com' },
   { icon: LinkedInIcon, label: 'LinkedIn', value: 'linkedin.com/in/seu-perfil', href: 'https://linkedin.com' },
-  { icon: Mail, label: 'Email', value: 'rodriguesviniciusc1@gmail.com', href: 'mailto:rodriguesviniciusc1@gmail.com' },
+  { icon: Mail, label: 'Email', value: 'dev.viniciusr@gmail.com', href: 'mailto:dev.viniciusr@gmail.com@gmail.com' },
   { icon: Phone, label: 'WhatsApp', value: '+55 (81) 9 96426039', href: 'https://wa.me/5581996426039' },
 ];
 
