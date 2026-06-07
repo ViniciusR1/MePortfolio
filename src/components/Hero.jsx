@@ -41,7 +41,7 @@ export default function Hero() {
             Ver Projetos
             <ArrowDown size={16} />
           </a>
-          <a href="/cv.pdf" className={styles.btnSecondary} download>
+          <a href="/curriculo.pdf" className={styles.btnSecondary} download="Curriculo-Vinicius-Rodrigues.pdf">
             <Download size={15} />
             Download CV
           </a>
