@@ -13,8 +13,8 @@ const LinkedInIcon = () => (
 
 const socials = [
   { icon: GitFork, label: 'GitHub', value: 'https://github.com/ViniciusR1', href: 'https://github.com' },
-  { icon: LinkedInIcon, label: 'LinkedIn', value: 'linkedin.com/in/seu-perfil', href: 'https://linkedin.com' },
-  { icon: Mail, label: 'Email', value: 'dev.viniciusr@gmail.com', href: 'mailto:dev.viniciusr@gmail.com@gmail.com' },
+  { icon: LinkedInIcon, label: 'LinkedIn', value: 'https://www.linkedin.com/in/viniciusrodriguesc/', href: 'https://linkedin.com' },
+  { icon: Mail, label: 'Email', value: 'dev.viniciusr@gmail.com', href: 'mailto:dev.viniciusr@gmail.com' },
   { icon: Phone, label: 'WhatsApp', value: '+55 (81) 9 96426039', href: 'https://wa.me/5581996426039' },
 ];
 
@@ -28,6 +28,13 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const whatsappUrl = `https://wa.me/5581996426039?text=${encodeURIComponent(
+      `Olá! Meu nome é ${form.name}\nEmail: ${form.email}\n\nMensagem: ${form.message}`
+    )}`;
+
+    window.open(whatsappUrl, '_blank');
+
     setSent(true);
     setTimeout(() => setSent(false), 4000);
     setForm({ name: '', email: '', message: '' });
@@ -106,7 +113,7 @@ export default function Contact() {
                 <textarea name="message" value={form.message} onChange={handleChange} className={styles.textarea} placeholder="Olá! Tenho um projeto interessante..." rows={5} required />
               </div>
               <button type="submit" className={styles.submit}>
-                {sent ? <><CheckCircle size={16} /> Mensagem enviada!</> : <><Send size={16} /> Enviar mensagem</>}
+                {sent ? <><CheckCircle size={16} /> Redirecionando...</> : <><Send size={16} /> Enviar mensagem</>}
               </button>
             </form>
           </motion.div>
