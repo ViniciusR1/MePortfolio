@@ -59,7 +59,7 @@ export default function Hero() {
         </motion.div>
         <motion.div className={styles.stats} {...fadeUp(0.65)}>
           {[
-            { num: '2+', label: 'Projetos' },
+            { num: '3+', label: 'Projetos' },
             { num: '2+', label: 'Anos estudando' },
             { num: '4+', label: 'Tecnologias' },
           ].map(s => (
