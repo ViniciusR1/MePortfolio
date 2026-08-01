@@ -28,6 +28,18 @@ const projects = [
     live: 'https://construmaxv2.netlify.app',
     featured: true,
   },
+  {
+    id: 3,
+    title: 'Sistema de processamento assíncrono de notificações',
+    description: 'Um sistema de processamento assíncrono de notificações com filas(Bullmq + Redis) e cron jobs, com persistência em PostgreSQL via prisma. Projeto de estudo focado em arquitetura de filas, retry com backoff exponencial, dead-letter queue e soft delete.',
+    tags: ['Node.js', 'Typescript', 'Express', 'PostgreSQL', 'Prisma', 'Bullmq', 'Redis', 'Docker'],
+    category: 'Backend',
+    images: [],
+    github: 'https://github.com/ViniciusR1/fila-notificacoes',
+    live: '',
+    featured: true,
+  },
+  
   // {
   //   id: 2,
   //   title: 'Dashboard Analytics',
