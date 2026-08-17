@@ -39,6 +39,17 @@ const projects = [
     live: '',
     featured: true,
   },
+  {
+    id: 4,
+    title: 'Sistema de agendamento com trava de horários (Booking API)',
+    description: 'API de agendamento para consultórios/clínicas com controle de concorrência real, garantindo que dois clientes nunca reservem o mesmo horário simultaneamente (transação + constraint única no banco). Inclui manipulação de fuso horário (UTC + conversão por profissional), validação completa de regras de negócio, testes automatizados (incluindo teste de concorrência).',
+    tags: ['Node.js', 'TypeScript', 'Express', 'PostgreSQL', 'Prisma', 'Docker', 'Zod', 'Jest'],
+    category: 'Backend',
+    images: [],
+    github: 'https://github.com/ViniciusR1/api-agendamento.git',
+    live: '',
+    featured: true,
+}
   
   // {
   //   id: 2,
