@@ -14,7 +14,7 @@ const projects = [
     category: 'Fullstack',
     images: [adegaDashImg],
     github: 'https://github.com/ViniciusR1/A_ultima_dose',
-    live: 'https://aultimadose.netlify.app',
+    //live: 'https://aultimadose.netlify.app',
     featured: true,
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     category: 'Fullstack',
     images: [construDashImg],
     github: 'https://github.com/ViniciusR1/ContruMaxV2',
-    live: 'https://construmaxv2.netlify.app',
+    //live: 'https://construmaxv2.netlify.app',
     featured: true,
   },
   {
